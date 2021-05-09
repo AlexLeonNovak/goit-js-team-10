@@ -9,31 +9,41 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" />
-  </head>
+<link rel="stylesheet" href="./sass/main.css">
+</head>
    <body>
-     
+    </section>
+    <section class="hero-section">
    
+<div class="header">
+<a href="./index.html" class="logo-link link"> <img class="logo" src="./images/desktop/logo.png" alt="logo"> </a>
 
-    <div class="body-cover">
-      <include src="./partials/header.html"></include>
-      
-      <include src="./partials/bg.html"></include>
-    </div>
-    <main>
-    
-      <!-- Так добавляются фрагменты  в главные HTML-файлы страниц. -->
-    
-    
-      <include src="./partials/renderPage.html"></include>
+<h1 class="hero-title">FIND BEST EVENTS AROUND THE WORLD</h1>
+  <div class="space"></div>
+</div>
+  
+
+<form class="search-form">
+  <div class="complete-input">
+    <input type="text" name="query" class="clear-input search-input" autocomplete="off" placeholder="Start searching" />
+    <img class="search-icon" src="./images/Vector.svg" alt="" width="12" height="12">
+  </div>
+
+
+  <select class="search-input" id="selectID">
+    <option selected="" value="Default">Choose country</option>
+    <option value="AF">Australia</option>
+    <option value="AL">Canada</option>
+    <option value="DZ">India</option>
+    <option value="AS">Russia</option>
+    <option value="AD">USA</option>
+  </select>
+</form>
      
-    </main>
-    <footer>
-      <include src="./partials/footer.html"></include>
-    </footer>
-    <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
-    <script src="./index.js"></script>
-    <script src="./modal.js"></script>
-    
+
+     
+    </section>
+   
     </body>
 </html>
 

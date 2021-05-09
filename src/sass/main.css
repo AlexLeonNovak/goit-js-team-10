@@ -1,0 +1,317 @@
+@charset "UTF-8";
+/*
+ * Главный файл стилей.
+ * Все паршалы подключаются сюда.
+ */
+.hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+address {
+  font-style: normal;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+/* Делает картинки блочными */
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Типография */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Убрать подчёркивания у ссылок */
+.link {
+  text-decoration: none;
+}
+
+/* Убрать маркировку списков */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Поинтер на кнопки */
+.button {
+  cursor: pointer;
+}
+
+/* Задаём ширину остовного контейнера */
+.container {
+  width: 100%;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 320px) {
+  .container {
+    min-width: 320px;
+  }
+}
+
+@media (min-width: 480px) {
+  .container {
+    min-width: 480px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    min-width: 768px;
+    padding-left: 85px;
+    padding-right: 85px;
+  }
+}
+
+@media (min-width: 1050px) {
+  .container {
+    width: 1050px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+address {
+  font-style: normal;
+}
+
+.hero-section {
+  height: 364px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #0e0e0e;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url("/src/images/mobile/hero.png");
+}
+
+@media screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+  .hero-section {
+    background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url("/src/images/mobile/hero@2x.png");
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero-section {
+    background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url("/src/images/tablet/hero.png");
+  }
+}
+
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), screen and (min-width: 768px) and (min-resolution: 192dpi), screen and (min-width: 768px) and (min-resolution: 2dppx) {
+  .hero-section {
+    background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url("/src/images/tablet/hero@2x.png");
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero-section {
+    height: 446px;
+    max-width: 1600px;
+    background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url("/src/images/desktop/hero.png");
+  }
+}
+
+@media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (min-resolution: 192dpi), screen and (min-width: 1280px) and (min-resolution: 2dppx) {
+  .hero-section {
+    background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url("/src/images/desktop/hero@2x.png");
+  }
+}
+
+.header {
+  height: 122px;
+}
+
+@media screen and (min-width: 480px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    height: 140px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .header {
+    height: 200px;
+  }
+}
+
+.logo, .space {
+  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 105px;
+  height: 90px;
+}
+
+@media screen and (min-width: 768px) {
+  .logo, .space {
+    width: 180px;
+    height: 150px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .logo, .space {
+    width: 238px;
+    height: 200px;
+  }
+}
+
+.hero-title {
+  display: inline-block;
+  color: #dc56c5;
+  font-size: 18px;
+  line-height: 1.22;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: -9px;
+  padding-right: 53px;
+  padding-left: 53px;
+}
+
+@media screen and (min-width: 480px) {
+  .hero-title {
+    font-size: 30px;
+    max-width: 300px;
+    margin-top: 30px;
+    max-height: 74px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero-title {
+    font-size: 30px;
+    max-width: 370px;
+    margin-top: 40px;
+    max-height: 74px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hero-title {
+    font-size: 50px;
+    margin-top: 40px;
+    max-width: 600px;
+    max-height: 122px;
+  }
+}
+
+.search-form {
+  position: relative;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .search-form {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.complete-input {
+  position: relative;
+}
+
+.search-input {
+  width: 270px;
+  height: 40px;
+  margin-top: 25px;
+  margin-left: 30px;
+  padding: 10px 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: none;
+}
+
+@media screen and (min-width: 768px) {
+  .search-input {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .search-input {
+    margin-top: 13px;
+  }
+}
+
+.search-input::placeholder {
+  color: #939393;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.search-icon {
+  position: absolute;
+  right: 30px;
+  width: 12px;
+  height: 12px;
+  fill: #939393;
+  transform: translate(-200%, -200%);
+}
+
+@media screen and (min-width: 480px) {
+  .search-icon {
+    right: 90px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .search-icon {
+    right: 30px;
+    transform: translate(-50%, -200%);
+  }
+}
+/*# sourceMappingURL=main.css.map */
