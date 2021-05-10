@@ -103,14 +103,10 @@ p {
 
 @media (min-width: 1050px) {
   .container {
-    width: 1050px;
-    padding-left: 0;
-    padding-right: 0;
+    width: 1280px;
+    padding-left: 175px;
+    padding-right: 175px;
   }
-}
-
-address {
-  font-style: normal;
 }
 
 .hero-section {
@@ -313,5 +309,10 @@ address {
     right: 30px;
     transform: translate(-50%, -200%);
   }
+}
+
+.footer {
+  color: #939393;
+  text-align: center;
 }
 /*# sourceMappingURL=main.css.map */

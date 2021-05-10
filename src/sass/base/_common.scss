@@ -80,12 +80,10 @@ p {
   }
 
   @include for-size(desktop) {
-    width: 1050px;
-    padding-left: 0;
-    padding-right: 0;
+    width: 1280px;
+    padding-left: 175px;
+    padding-right: 175px;
   }
 }
 
-address {
-  font-style: normal;
-}
+
