@@ -31,9 +31,9 @@ export default class ApiService {
   }
 
 
-  fetchEvent() {
+  fetchEvents() {
     const params = {
-      key: API_KEY,
+      apikey: API_KEY,
       page: this._page,
       per_page: this._perPage,
     };
@@ -46,22 +46,16 @@ export default class ApiService {
       params.countryCode = this._countryCode.trim();
     }
 
-    const headers = {
-      'Access-Control-Allow-Origin': '*'
-    }
-
-    return fetch(`${BASE_URL}events.json?${this.buildParamString(params)}`, {
-      headers
-    })
+    return fetch(`${BASE_URL}events.json?${this.buildParamString(params)}`)
       .then(response => response.json());
   }
 
   fetchEventDetail(id) {
     const params = {
-      key: API_KEY
+      apikey: API_KEY
     };
 
-    return fetch(`${BASE_URL}events/${id}?${this.buildParamString(params)}`)
+    return fetch(`${BASE_URL}events/${id}.json?${this.buildParamString(params)}`)
       .then(response => response.json());
   }
 
