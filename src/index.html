@@ -13,54 +13,44 @@
   <link rel='stylesheet' href='./sass/main.css'>
 </head>
 <body>
+<header class='hero-section' >
 
-<section class='hero-section'>
-
-  <div class='header'>
-    <picture class='logo'>
-      <source srcset='./images/mobile/logo.png 1x, ./images/mobile/logo@2x.png 2x' media='(max-width: 767px)' />
-      <source srcset='./images/desktop/logo.png 1x, ./images/desktop/logo@2x.png 2x' media='(min-width: 1200px)' />
-      <source srcset='./images/tablet/logo.png 1x, ./images/tablet/logo@2x.png 2x' media='(min-width: 768px)' />
-      <img src='./images/desktop/logo.png'
-           sizes='(max-width: 767px) 450px, (min-width: 768px) 354px, (min-width: 1200px) 270px, 100vw' />
-    </picture>
-
-    <h1 class='hero-title'>FIND BEST EVENTS AROUND THE WORLD</h1>
-    <div class='space'></div>
+  <picture class='logo'>
+    <source srcset='./images/mobile/logo.png 1x, ./images/mobile/logo@2x.png 2x' media='(max-width: 767px)' />
+    <source srcset='./images/tablet/logo.png 1x, ./images/tablet/logo@2x.png 2x' media='(min-width: 768px)' />
+    <source srcset='./images/desktop/logo.png 1x, ./images/desktop/logo@2x.png 2x' media='(min-width: 1200px)' />
+    <img src='./images/desktop/logo.png'
+      sizes='(max-width: 767px) 450px, (min-width: 768px) 354px, (min-width: 1200px) 270px, 100vw' />
+  </picture>
+<div class='header container'>
+  <h1 class='hero-title'>FIND BEST EVENTS AROUND THE WORLD</h1>
+<form class='search-form'>
+  <div class='complete-input'>
+    <input type='text' name='query' class='clear-input search-input' autocomplete='off' placeholder='Start searching' />
+    <img class='search-icon' src='./images/Vector.svg' alt='' width='12' height='12'>
   </div>
 
+  <select class='search-input' id='selectID'>
+    <option selected='' value='Default'>Choose country</option>
+    <option value='AF'>Australia</option>
+    <option value='AL'>Canada</option>
+    <option value='DZ'>India</option>
+    <option value='AS'>Russia</option>
+    <option value='AD'>USA</option>
+  </select>
+</form>
+<div class="overlay"></div>
+</div>
+</header>
+<main>
 
-  <form class='search-form'>
-    <div class='complete-input'>
-      <input type='text' name='query' class='clear-input search-input' autocomplete='off'
-             placeholder='Start searching' />
-      <img class='search-icon' src='./images/Vector.svg' alt='' width='12' height='12'>
-    </div>
+</main>
 
-    <!-- <label class="complete-input">
-      <input class="search-input" type="text" name="search" id="search" placeholder="Start searching" autocomplete="off" />
-      <svg class="search-icon">
-        <use href="./images/Vector.svg" width="12" height="12"></use>
-      </svg>
-    </label> -->
-    <!-- <button type="submit" class="btn-submit"><span class="material-icons">
-        search
-      </span></button> -->
 
-    <select class='search-input' id='selectID'>
-      <option selected='' value='Default'>Choose country</option>
-      <option value='AF'>Australia</option>
-      <option value='AL'>Canada</option>
-      <option value='DZ'>India</option>
-      <option value='AS'>Russia</option>
-      <option value='AD'>USA</option>
-    </select>
-  </form>
 
 
 <div><img src="./images/desktop/bg-body.png" alt=""></div>
 
-</section>
 <footer class='footer'>
   <p class='footer-text'>
     <span>©</span>2021 | All Rights Reserved | Developed with
