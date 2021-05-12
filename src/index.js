@@ -1,6 +1,6 @@
 import './sass/main.scss';
 //import 'material-design-icons/iconfont/material-icons.css';
-import ApiService from './services/api.service';
+import ApiService from './services/api-service';
 import cardTpl from './templates/template-card.hbs';
 import { eventAdapter } from './utils/event-adapter';
 
