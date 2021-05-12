@@ -1,0 +1,168 @@
+
+.search-form {
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 38%;
+  }
+  @media screen and (min-width: 1280px) {
+    top: 45%;
+    right: 28%;
+  }
+}
+
+.icon-search::after {
+   content: "";
+   width: 12px;
+height: 12px;
+  position: absolute;
+  top: 50%;
+  right: 4%;
+  padding: 0 1em;
+  background: transparent;
+  background-image: url('../images/Vector.svg');
+  background-repeat: no-repeat;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: 0.25s all ease;
+  -o-transition: 0.25s all ease;
+  transition: 0.25s all ease;
+  color: $secondary-color
+}
+
+.icon-country::after {
+   content: '\25BC';
+  position: absolute;
+  top: 25%;
+  right: 4%;
+  padding: 0 1em;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: 0.25s all ease;
+  -o-transition: 0.25s all ease;
+  transition: 0.25s all ease;
+  color: $secondary-color;
+}
+
+.start-input {
+	position: relative;
+
+	@media screen and (min-width: 768px) {
+		width: 270px;
+	}
+
+	& input {
+		display: block;
+		width: 100%;
+		padding: 10px 30px;
+		color: $secondary-color;
+    font-family: inherit;
+		font-size: 16px;
+		line-height: 1.25;
+		border-radius: 20px;
+     border-style: none;
+    outline: none;
+		background: $secondary-color-02;
+		backdrop-filter: blur(20px);
+	}
+  & input:hover,
+	& input:focus,
+	& input.active {
+		outline: none;
+    	box-shadow: 0 0 3px 3px $accent-color;
+    //color: $light-color;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		right: 30px;
+		transform: translateY(-50%);
+		display: block;
+		width: 12px;
+		height: 12px;
+		background: url('../images/Vector.svg') no-repeat;
+	}
+}
+
+.start-input.country {
+	margin-top: 25px;
+	&::after {
+		background: url('../images/Polygon1.svg') no-repeat;
+	}
+
+  @media screen and (min-width: 768px) {
+    	margin-top: 0;
+			margin-left: 30px;
+	}
+  @media screen and (min-width: 1280px) {
+    
+		margin-left: 30px;
+	}
+}
+
+.country-list {
+	z-index: 99;
+	position: absolute;
+	width: 100%;
+	margin-top: 3px;
+	transition: height 0.4s;
+	height: 210px;
+	overflow-y:scroll;
+  //border-radius: 20px;
+   border-top-left-radius: 20px;
+    border-top-right-radius:20px;
+    backdrop-filter: blur(20px);
+    color: $country-name;
+
+  &::-webkit-scrollbar {
+  width: 3px;
+  background-color: $secondary-color-02;
+}
+
+ &::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  height: 43px;
+  background-color: $secondary-color;
+}
+
+&::-webkit-scrollbar-track {
+ 
+  border-radius: 10px;
+  background-color: $secondary-color-02;
+}
+
+	.start-input :not(.active) + & {
+		@extend %hidden;
+		width: 100%;
+
+	}
+  & input{
+	border-radius: 0;
+  padding: 0;
+
+  }
+ & input:hover,
+	& input:focus,
+	& input.active {
+		outline: none;
+    background: $accent-color;
+    color: $light-color;
+    	box-shadow: none;
+	}
+}
+
+ .country-button {
+  height: 25px;
+  width: 100%;
+  border-style: none;
+	cursor: pointer;
+
+ 
+}
+

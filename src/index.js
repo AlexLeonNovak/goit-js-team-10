@@ -4,6 +4,15 @@ import ApiService from './services/api.service';
 import cardTpl from './templates/template-card.hbs';
 import { eventAdapter } from './utils/event-adapter';
 
+import dropdown from './services/dropdown.js';
+import countryListTpl from './templates/country-list.hbs';
+
+const selectCountryBtn = document.getElementById('select-country-btn');
+dropdown(selectCountryBtn);
+selectCountryBtn.insertAdjacentHTML('afterend', countryListTpl());
+ 
+
+
 const refs = {
   eventList: document.querySelector('.card-list')
 }
@@ -22,3 +31,6 @@ function buildCards({events}) {
   console.log(events);
   refs.eventList.innerHTML = cardTpl(events.map(eventAdapter));
 }
+
+
+
