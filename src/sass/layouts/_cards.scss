@@ -5,12 +5,26 @@
     flex-wrap: wrap;
     text-align: center;
     padding-bottom: 63px;
+    padding-left: 0;
+    margin-right: -14px;
+    margin-bottom: -39px;
+
+    @include for-size(tablet) {
+      margin-right: -27px;
+      margin-bottom: -58px;
+    }
+    @include for-size(desktop) {
+      margin-right: -70px;
+      margin-bottom: -63px;
+    }
+  
 }
 
 // Стили для <li>
 .card-item {
     position: relative;
     text-align: center;
+    cursor: pointer;
     border-radius: 50px 0px;
     object-fit: contain;
     transition: transform;
@@ -36,24 +50,64 @@
     display: block;
     content: '';
     border-radius: 50px 0px;
+    border: 1px solid rgba(220, 86, 197, 0.3);
+    width: 109px;
+    height: 101px;
+    top: -9px;
+    right: -10px;
+    @include for-size(tablet) {
+      width: 153px;
+      height: 143px;
+      top: -13px;
+      right: -14px;
+    }
+}
+
+.card-image__wrapper {
+  @extend %animation;
+  display: inline-block;
+  // background-color: grey;
+
+  width: 128px;
+  height: 161px;
+  border-radius: 50px 0px;
+  object-fit: contain;
+  // transition: transform var(--animation-duration) var(--timing-function);
+
+  overflow: hidden;
+
+  @include for-size(tablet) {
+    width: 180px;
+    height: 227px;
+  }
+}
+
+.card-image {
+  height: 161px;
+  width: 100%;
+  // transform: translateX(-21%);
+  // max-width: max-content;
+  @include for-size(tablet) {
+    height: 227px;
+  }
 }
 
 .description {
     font-family: Montserrat;
     font-style: 400;
+    
 }
 .card-name {
-    
     font-weight: 700;
     font-size: 14px;
     line-height: 17px;
     color: $accent-color;
-    padding: 0px 8px;
+    padding: 5px 0px;
 
     @include for-size(tablet) {
       font-size: 15px;
       line-height: 20px;
-      padding: 0px 3px;
+    
     }
   }
 
@@ -61,6 +115,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
+    padding: 5px 0px;
    
 
     @include for-size(tablet) {
@@ -73,9 +128,19 @@
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
+    padding: 5px 0px;
 
     @include for-size(tablet) {
       font-size: 14px;
       line-height: 17px;
+    
     }
   }
+
+  .svg {
+    overflow: visible;
+    margin-right: 3px;
+ 
+  }
+
+  
