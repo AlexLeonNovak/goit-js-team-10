@@ -1,12 +1,13 @@
 import './sass/main.scss';
 //import 'material-design-icons/iconfont/material-icons.css';
 import ApiService from './services/api-service';
-import cardTpl from './templates/template-card.hbs';
 import { eventAdapter } from './utils/event-adapter';
-
 import dropdown from './services/dropdown';
-import countryListTpl from './templates/country-list.hbs';
 import getRefs from './components/refs';
+import { Preloader } from './components/preloader';
+
+import cardTpl from './templates/template-card.hbs';
+import countryListTpl from './templates/country-list.hbs';
 
 
 const refs = getRefs();
