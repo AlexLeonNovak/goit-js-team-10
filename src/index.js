@@ -4,9 +4,9 @@ import ApiService from './services/api-service';
 import cardTpl from './templates/template-card.hbs';
 import { eventAdapter } from './utils/event-adapter';
 
-import dropdown from './services/dropdown.js';
+import dropdown from './services/dropdown';
 import countryListTpl from './templates/country-list.hbs';
-import getRefs from './services/get.refs.js';
+import getRefs from './components/refs';
 
 
 const refs = getRefs();
@@ -14,13 +14,6 @@ const refs = getRefs();
 
 dropdown(refs.selectCountryBtn);
 refs.selectCountryBtn.insertAdjacentHTML('afterend', countryListTpl());
-
-
-
-const refs = {
-  eventList: document.querySelector('.card-list'),
-  preloader: document.querySelector('.preloader')
-}
 
 const api = new ApiService();
 let preloader = null;
