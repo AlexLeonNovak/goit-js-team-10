@@ -5,7 +5,7 @@ import cardTpl from './templates/template-card.hbs';
 import { eventAdapter } from './utils/event-adapter';
 
 const refs = {
-  eventList: document.querySelector('.event-list')
+  eventList: document.querySelector('.card-list')
 }
 
 const api = new ApiService();
