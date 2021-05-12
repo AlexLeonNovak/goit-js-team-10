@@ -6,16 +6,17 @@ import { eventAdapter } from './utils/event-adapter';
 
 import dropdown from './services/dropdown.js';
 import countryListTpl from './templates/country-list.hbs';
+import getRefs from './services/get.refs.js';
 
-const selectCountryBtn = document.getElementById('select-country-btn');
-dropdown(selectCountryBtn);
-selectCountryBtn.insertAdjacentHTML('afterend', countryListTpl());
+
+const refs = getRefs();
+
+
+dropdown(refs.selectCountryBtn);
+refs.selectCountryBtn.insertAdjacentHTML('afterend', countryListTpl());
  
 
 
-const refs = {
-  eventList: document.querySelector('.card-list')
-}
 
 const api = new ApiService();
 
