@@ -1,4 +1,4 @@
-const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
+const BASE_URL = 'https://newsuperserver.herokuapp.com/https://app.ticketmaster.com/discovery/v2/';
 const API_KEY = 'bOxDzXD7U4DYwWKdKJpCszoGXxMX0Go3';
 
 export default class ApiService {
