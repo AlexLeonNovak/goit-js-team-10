@@ -3,22 +3,21 @@ import './sass/main.scss';
 import ApiService from './services/api-service';
 import cardTpl from './templates/template-card.hbs';
 import { eventAdapter } from './utils/event-adapter';
+import './modal';
 
 const refs = {
-  eventList: document.querySelector('.card-list')
-}
+  eventList: document.querySelector('.card-list'),
+};
 
 const api = new ApiService();
 
-api.fetchEvents()
-  .then(({ _embedded }) => {
-    buildCards(_embedded);
-  })
+api.fetchEvents().then(({ _embedded }) => {
+  buildCards(_embedded);
+});
 
 // api.fetchEventDetail("1kk8v94-GA5YE-w").then(console.log);
 
-
-function buildCards({events}) {
+function buildCards({ events }) {
   console.log(events);
   refs.eventList.innerHTML = cardTpl(events.map(eventAdapter));
 }
