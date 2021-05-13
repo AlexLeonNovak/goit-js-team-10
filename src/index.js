@@ -7,7 +7,8 @@ import { eventAdapter } from './utils/event-adapter';
 
 const refs = {
   eventList: document.querySelector('.card-list'),
-  preloader: document.querySelector('.preloader')
+  preloader: document.querySelector('.preloader'),
+    
 }
 
 const api = new ApiService();

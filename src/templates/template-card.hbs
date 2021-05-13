@@ -1,5 +1,5 @@
 {{#each this}}
-<li class="card-item">
+<li class="list card-item">
     <div class="card-image__wrapper">
       <img class="card-image" src="{{image}}" alt="event image" loading="lazy" width="180" height="auto">
    </div>
@@ -8,7 +8,7 @@
        <h2 class="card-name">{{name}}</h2>
        <p class="card-date">{{date}}</p>
        <p class="card-place">
-          <svg>
+          <svg class="svg" width="6" height="9">
              <use href="./images/sprite.svg#icon-map" width="6" height="9"></use>
           </svg>
             {{place}}
