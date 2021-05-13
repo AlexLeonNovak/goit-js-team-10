@@ -4,25 +4,13 @@ import dropdown from '../components/dropdown.js';
 import getRefs from '../components/refs';
 import countryListTpl from '../templates/country-list.hbs';
 import cardTpl from '../templates/template-card.hbs';
+import cardTplList from '../templates/contry-list.hbs';
 
 const refs = getRefs();
 const api = new ApiService();
 
  
 refs.searchForm.addEventListener('input', debounce(onInputSearch, 500));
-
-// function onInputSearch(e) {
-//     e.preventDefault();
-  
-//     const form = e.target;
-//     const searchEvents = form.value;
-
-//     api.fetchEvents(searchEvents)
-//         .then(cardTpl)
-//         .finally(setTimeout(reset, 5000));
-  
-    
-// }
 
 function onInputSearch(e) {
     e.preventDefault();
@@ -36,21 +24,19 @@ function onInputSearch(e) {
       return;
     }
   //scroll = 0;
-  fetchQuery();
+  searchQuery();
 
 }
 // function onLoadMore() {
-// scroll = refs.cardsContainer.offsetHeight;
-//   fetchQuery(); 
+// scroll = refs.eventList.offsetHeight;
+//   searchQuery(); 
   
 // }
-function fetchQuery() {
+function searchQuery() {
   api.fetchEvents()
         .then(cardTpl)
        .finally(setTimeout(reset, 5000));
           //scrollWin(scroll); 
-    
-  
 }
 
 
@@ -62,7 +48,12 @@ function clearEventList() {
   refs.eventList.innerHTML = "";
 }
 
-
+// function scrollWin(scroll) {
+// window.scrollTo({
+//     top: scroll,
+//     behavior: "smooth"
+// });
+// }
 
 dropdown(refs.selectCountryBtn);
 refs.selectCountryBtn.insertAdjacentHTML('afterend', countryListTpl());
@@ -75,15 +66,12 @@ function searchInCountry() {
 	countryList.addEventListener('click', getEventInCountry);
 
 	function getEventInCountry(e) {
-        //let countryCode = e.target.dataset.countryCode;
+        let countryCode = e.target.dataset.countryCode;
         // console.log(countryCode);
-api.countryCode = e.target.dataset.countryCode;
-
-        api.fetchEvents(api.countryCode)
-            .then(data => {
-                data._embedded.events;
-                console.log(data._embedded.events);
-            })
+api.countryCode = countryCode;
+ 
+        api.fetchEvents()
+            .then(cardTplList)
             .then(changeSearchBtn(e))
             .finally(removeEventLis());
 	}
