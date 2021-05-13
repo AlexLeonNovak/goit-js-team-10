@@ -1,44 +1,51 @@
 import { debounce } from 'lodash';
 import ApiService from '../services/api-service';
 import dropdown from '../components/dropdown.js';
-import getRefs from '../components/refs';
+import { refs } from './refs';;
 import countryListTpl from '../templates/country-list.hbs';
-import cardTpl from '../templates/template-card.hbs';
-import cardTplList from '../templates/contry-list.hbs';
+import toastr from 'toastr';
+import { Preloader } from './preloader';
+import { buildCards } from './build-cards';
 
-const refs = getRefs();
+dropdown(refs.selectCountryBtn);
+refs.selectCountryBtn.insertAdjacentHTML('afterend', countryListTpl());
+refs.countryList = document.querySelector('.country-list');
+
 const api = new ApiService();
+const preloader = new Preloader(refs.preloader)
 
- 
-refs.searchForm.addEventListener('input', debounce(onInputSearch, 500));
+refs.searchForm.addEventListener('input', debounce(onSearch, 500));
+refs.countryList.addEventListener('click', onSearch);
+console.log(refs);
+function onSearch(e) {
+  e.preventDefault();
 
-function onInputSearch(e) {
-    e.preventDefault();
-  clearEventList();
-  //imgApiService.resetPage();
-  api.searchQuery = e.target.query;
-  console.dir(api.searchQuery);
-  if (api.query === '') {
-      refs.eventList.innerHTML = '';
-       //errorNotice();
+  if (e.target.classList.contains('country-button') && e.target.dataset.countryCode) {
+    api.countryCode = e.target.dataset.countryCode;
+  }
+  if (e.target.name && e.target.name === 'query') {
+    const q = e.target.value.trim();
+    if (!q) {
+      toastr.warning('Search query must not be empty');
+      api.searchQuery = '';
       return;
     }
-  //scroll = 0;
-  searchQuery();
+    api.searchQuery = q;
+  }
 
-}
-// function onLoadMore() {
-// scroll = refs.eventList.offsetHeight;
-//   searchQuery(); 
-  
-// }
-function searchQuery() {
+  clearEventList();
+  preloader.showLight();
   api.fetchEvents()
-        .then(cardTpl)
-       .finally(setTimeout(reset, 5000));
-          //scrollWin(scroll); 
-}
+    .then(({ _embedded }) => {
+      if (!_embedded) {
+        throw Error('There are no data to show')
+      }
+      buildCards(_embedded.events);
+    })
+    .catch(error => toastr.error(error.message))
+    .finally(() => preloader.hide());
 
+}
 
 function reset() {
   refs.input.value = "";
@@ -47,41 +54,3 @@ function reset() {
 function clearEventList() {
   refs.eventList.innerHTML = "";
 }
-
-// function scrollWin(scroll) {
-// window.scrollTo({
-//     top: scroll,
-//     behavior: "smooth"
-// });
-// }
-
-dropdown(refs.selectCountryBtn);
-refs.selectCountryBtn.insertAdjacentHTML('afterend', countryListTpl());
-
-
-refs.selectCountryBtn.addEventListener('click', searchInCountry);
-
-function searchInCountry() {
-	const countryList = document.querySelector('.country-list');
-	countryList.addEventListener('click', getEventInCountry);
-
-	function getEventInCountry(e) {
-        let countryCode = e.target.dataset.countryCode;
-        // console.log(countryCode);
-api.countryCode = countryCode;
- 
-        api.fetchEvents()
-            .then(cardTplList)
-            .then(changeSearchBtn(e))
-            .finally(removeEventLis());
-	}
-function removeEventLis() {
-		countryList.removeEventListener('click', getEventInCountry);
-}
-}
- 
-function changeSearchBtn(e) {
-    refs.selectCountryBtn.value = e.target.dataset.countryCode;
-}
-
-
