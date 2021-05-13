@@ -22,11 +22,14 @@
 
 // Стили для <li>
 .card-item {
+  @extend %animation;
     position: relative;
     text-align: center;
     cursor: pointer;
     border-radius: 50px 0px;
-    object-fit: contain;
+
+    object-fit: cover;
+ 
     transition: transform;
 
     width: 128px;
@@ -66,13 +69,11 @@
 .card-image__wrapper {
   @extend %animation;
   display: inline-block;
-  // background-color: grey;
-
+  
   width: 128px;
   height: 161px;
   border-radius: 50px 0px;
-  object-fit: contain;
-  // transition: transform var(--animation-duration) var(--timing-function);
+  object-fit: cover;
 
   overflow: hidden;
 
@@ -86,7 +87,7 @@
   height: 161px;
   width: 100%;
   // transform: translateX(-21%);
-  // max-width: max-content;
+
   @include for-size(tablet) {
     height: 227px;
   }
@@ -116,7 +117,7 @@
     font-size: 14px;
     line-height: 17px;
     padding: 5px 0px;
-   
+    color: $light-color;
 
     @include for-size(tablet) {
       font-size: 16px;
@@ -129,6 +130,10 @@
     font-size: 12px;
     line-height: 15px;
     padding: 5px 0px;
+    color: $light-color;
+    &:before {
+      background-image: url(../images/sprite.svg#icon-map);
+    }
 
     @include for-size(tablet) {
       font-size: 14px;
@@ -138,9 +143,9 @@
   }
 
   .svg {
-    overflow: visible;
+    overflow: hidden;
     margin-right: 3px;
- 
+
   }
 
   

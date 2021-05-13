@@ -15,9 +15,8 @@ import cardTpl from './templates/template-card.hbs';
 
 
 
+
 const refs = getRefs();
-
-
 
 
 const api = new ApiService();
