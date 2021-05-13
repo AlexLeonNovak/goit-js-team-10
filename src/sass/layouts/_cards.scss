@@ -27,8 +27,10 @@
     text-align: center;
     cursor: pointer;
     border-radius: 50px 0px;
+
     object-fit: cover;
-    // transition: transform;
+ 
+    transition: transform;
 
     width: 128px;
 
@@ -72,7 +74,7 @@
   height: 161px;
   border-radius: 50px 0px;
   object-fit: cover;
-  
+
   overflow: hidden;
 
   @include for-size(tablet) {
@@ -85,7 +87,7 @@
   height: 161px;
   width: 100%;
   // transform: translateX(-21%);
-  // max-width: max-content;
+
   @include for-size(tablet) {
     height: 227px;
   }
@@ -143,7 +145,7 @@
   .svg {
     overflow: hidden;
     margin-right: 3px;
-    
+
   }
 
   

@@ -27,7 +27,7 @@
 		&:hover {
             cursor: pointer;
 		}
-        &isActive {
+        &active {
             border: 1px solid $accent-color;
             border-radius: 10px 0px;
             color: $accent-color;
