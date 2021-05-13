@@ -1,4 +1,5 @@
 import './sass/main.scss';
+import toastr from 'toastr';
 //import 'material-design-icons/iconfont/material-icons.css';
 import ApiService from './services/api-service';
 import { eventAdapter } from './utils/event-adapter';
@@ -24,10 +25,10 @@ document.addEventListener('DOMContentLoaded', onLoadedDocument);
 function onLoadedDocument() {
   preloader = new Preloader(refs.preloader);
   api.fetchEvents()
-    .then(({ _embedded }) => {
-      buildCards(_embedded);
-      preloader.hide();
-    });
+    .then(({ _embedded }) => buildCards(_embedded))
+    .catch(error => toastr.error(error.message))
+    .finally(() => preloader.hide())
+  ;
 }
 
 

@@ -48,6 +48,8 @@
     "webpackbar": "^5.0.0-3"
   },
   "dependencies": {
-    "handlebars": "^4.7.7"
+    "handlebars": "^4.7.7",
+    "lodash.debounce": "^4.0.8",
+    "toastr": "^2.1.4"
   }
 }
