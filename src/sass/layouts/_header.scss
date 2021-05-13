@@ -52,6 +52,25 @@ $gradient-overlay: linear-gradient(
   }
 }
 
+.overlay {
+  position: absolute;
+  width: 320px;
+  height: 102px;
+  left: 0px;
+  top: 262px;
+  background: $gradient-overlay;
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    top: 344px;
+  }
+}
+
+
 .logo {
   display: inline-block;
   align-items: flex-start;
@@ -84,84 +103,5 @@ $gradient-overlay: linear-gradient(
     margin-top: 40px;
     max-width: 600px;
     max-height: 122px;
-  }
-}
-
-.search-form {
-  text-align: center;
-
-  @media screen and (min-width: 768px) {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    top: 30%;
-  }
-  @media screen and (min-width: 1280px) {
-    top: 45%;
-    right: 27%;
-  }
-}
-.complete-input {
-  position: relative;
-}
-.search-input {
-  width: 270px;
-  height: 40px;
-  margin-top: 25px;
-  padding: 10px 30px;
-  background-color: $secondary-color-02;
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  border: none;
-  @media screen and (min-width: 768px) {
-    display: flex;
-    justify-content: center;
-    margin-left: 30px;
-  }
-  @media screen and (min-width: 1280px) {
-    margin-top: 13px;
-  }
-
-  &::placeholder {
-    color: $secondary-color;
-    font-size: 16px;
-    line-height: 1.25;
-  }
-}
-
-.search-icon {
-  position: absolute;
-  //top: 0;
-  right: 30px;
-  width: 12px;
-  height: 12px;
-  fill: $secondary-color;
-  transform: translate(-200%, -200%);
-
-  @media screen and (min-width: 480px) {
-    right: 90px;
-  }
-
-  @media screen and (min-width: 768px) {
-    right: 30px;
-    transform: translate(-50%, -200%);
-  }
-}
-
-.overlay {
-  position: absolute;
-  width: 320px;
-  height: 102px;
-  left: 0px;
-  top: 262px;
-  background: $gradient-overlay;
-
-  @media screen and (min-width: 768px) {
-    width: 768px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    width: 1280px;
-    top: 344px;
   }
 }
