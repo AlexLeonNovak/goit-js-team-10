@@ -1,7 +1,7 @@
 import { debounce } from 'lodash';
 import ApiService from '../services/api-service';
-import dropdown from '../components/dropdown.js';
-import { refs } from './refs';;
+import { dropdown } from '../components/dropdown.js';
+import { refs } from './refs';
 import countryListTpl from '../templates/country-list.hbs';
 import toastr from 'toastr';
 import { Preloader } from './preloader';
@@ -11,12 +11,13 @@ dropdown(refs.selectCountryBtn);
 refs.selectCountryBtn.insertAdjacentHTML('afterend', countryListTpl());
 refs.countryList = document.querySelector('.country-list');
 
+
 const api = new ApiService();
 const preloader = new Preloader(refs.preloader)
 
 refs.searchForm.addEventListener('input', debounce(onSearch, 500));
 refs.countryList.addEventListener('click', onSearch);
-console.log(refs);
+console.log(refs.countryList);
 function onSearch(e) {
   e.preventDefault();
 
@@ -34,7 +35,7 @@ function onSearch(e) {
   }
 
   clearEventList();
-  preloader.showLight();
+  //preloader.showLight();
   api.fetchEvents()
     .then(({ _embedded }) => {
       if (!_embedded) {
@@ -47,7 +48,7 @@ function onSearch(e) {
 
 }
 
-function reset() {
+function clearInput() {
   refs.input.value = "";
 }
 
