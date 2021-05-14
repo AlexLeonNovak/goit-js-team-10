@@ -1,7 +1,7 @@
 import { debounce } from 'lodash';
 import ApiService from '../services/api-service';
 import dropdown from '../components/dropdown.js';
-import { refs } from './refs';;
+import { refs } from './refs';
 import countryListTpl from '../templates/country-list.hbs';
 import toastr from 'toastr';
 import { Preloader } from './preloader';
