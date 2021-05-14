@@ -1,0 +1,54 @@
+
+    <div class="modal-wrapper">
+        <button class="modal-close-btn">
+            <svg class="close-icon" width="17" height="17">
+                <use href="./images/sprite.svg#icon-close-1"></use>
+            </svg>
+        </button>
+
+        <img src="{{image}}" alt="" class="modal-ikon" />
+
+        <div class="modal-flex">
+            <img src="{{image}}" alt="" class="modal-img" />
+
+            <div class="main-info">
+                <div>
+                    <h2 class="title-modal">info</h2>
+                    <p>
+                        {{description}}
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="title-modal">WHEN</h2>
+                    <p>{{date}}</p>
+                    <p>{{start.localTime}} ({{place.city}}/{{place.city}})</p>
+                </div>
+
+                <div>
+                    <h2 class="title-modal">WHERE</h2>
+                    <p>{{place}}</p>
+                </div>
+
+                <div>
+                    <h2 class="title-modal">WHO</h2>
+                    <p class="who">{{name}}</p>
+                </div>
+
+                <div>
+                    <h2 class="title-modal">PRICES</h2>
+                    <div class="buy-tickets">
+                        <p class="ticket-standart ticket">Standart 300-500 UAH</p>
+                        <button class="modal-btn btn-buy">BUY TICKETS</button>
+                    </div>
+
+                    <div>
+                        <p class="ticket-vip ticket">VIP 1000-1500 UAH</p>
+                        <button class="modal-btn btn-buy">BUY TICKETS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="modal-btn more-btn">MORE FROM THIS AUTHOR</button>
+    </div>
