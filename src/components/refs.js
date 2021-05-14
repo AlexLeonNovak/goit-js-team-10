@@ -5,4 +5,5 @@ export const refs = {
   eventList: document.querySelector('.card-list'),
   preloader: document.querySelector('.preloader'),
   countryList: document.querySelector('.country-list'),
+  countryBtnList: document.querySelectorAll('li'),
 };

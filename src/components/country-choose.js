@@ -11,12 +11,13 @@ dropdown(refs.selectCountryBtn);
 refs.selectCountryBtn.insertAdjacentHTML('afterend', countryListTpl());
 refs.countryList = document.querySelector('.country-list');
 
+
 const api = new ApiService();
 const preloader = new Preloader(refs.preloader)
 
 refs.searchForm.addEventListener('input', debounce(onSearch, 500));
 refs.countryList.addEventListener('click', onSearch);
-console.log(refs);
+
 function onSearch(e) {
   e.preventDefault();
 
@@ -34,7 +35,7 @@ function onSearch(e) {
   }
 
   clearEventList();
-  preloader.showLight();
+  //preloader.showLight();
   api.fetchEvents()
     .then(({ _embedded }) => {
       if (!_embedded) {
@@ -47,7 +48,7 @@ function onSearch(e) {
 
 }
 
-function reset() {
+function clearInput() {
   refs.input.value = "";
 }
 
