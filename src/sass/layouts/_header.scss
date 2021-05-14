@@ -10,12 +10,13 @@ $gradient-overlay: linear-gradient(
 );
 
 .hero-section {
+  background-color: #c4c4c4;
   position: relative;
   height: 364px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  background-color: $dark-color;
+  // background-color: $dark-color;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -39,7 +40,7 @@ $gradient-overlay: linear-gradient(
 
   @media screen and (min-width: 1280px) {
     height: 446px;
-    max-width: 1600px;
+    max-width: 1280px;
     // padding-top: 200px;
     // padding-bottom: 200px;
     background-image: $gradient, url('../images/desktop/hero.png');
