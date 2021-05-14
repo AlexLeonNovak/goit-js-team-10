@@ -6,26 +6,44 @@ import countryListTpl from '../templates/country-list.hbs';
 import toastr from 'toastr';
 import { Preloader } from './preloader';
 import { buildCards } from './build-cards';
+import { buildPagination } from './paginator';
 
 dropdown(refs.selectCountryBtn);
 refs.selectCountryBtn.insertAdjacentHTML('afterend', countryListTpl());
 refs.countryList = document.querySelector('.country-list');
 
-
 const api = new ApiService();
-const preloader = new Preloader(refs.preloader)
+const preloader = new Preloader(refs.preloader);
+let searchEvent;
+let countrySelectionEvent;
 
-refs.searchForm.addEventListener('input', debounce(onSearch, 500));
-refs.countryList.addEventListener('click', onSearch);
+refs.searchForm.addEventListener('input', event => {
+  event.preventDefault();
 
-function onSearch(e) {
-  e.preventDefault();
+  searchEvent = event;
+  debounce(loadEvents(1), 500);
+});
+refs.countryList.addEventListener('click', event => {
+  event.preventDefault();
 
-  if (e.target.classList.contains('country-button') && e.target.dataset.countryCode) {
-    api.countryCode = e.target.dataset.countryCode;
+  countrySelectionEvent = event;
+  loadEvents(1);
+});
+
+export function loadEvents(page = 1) {
+  if (
+    countrySelectionEvent &&
+    countrySelectionEvent.target.dataset.countryCode
+  ) {
+    api.countryCode = countrySelectionEvent.target.dataset.countryCode;
   }
-  if (e.target.name && e.target.name === 'query') {
-    const q = e.target.value.trim();
+
+  if (
+    searchEvent &&
+    searchEvent.target.name &&
+    searchEvent.target.name === 'query'
+  ) {
+    const q = searchEvent.target.value.trim();
     if (!q) {
       toastr.warning('Search query must not be empty');
       api.searchQuery = '';
@@ -36,22 +54,24 @@ function onSearch(e) {
 
   clearEventList();
   //preloader.showLight();
-  api.fetchEvents()
-    .then(({ _embedded }) => {
+  api.page = page;
+  api
+    .fetchEvents()
+    .then(({ _embedded, page }) => {
       if (!_embedded) {
-        throw Error('There are no data to show')
+        throw Error('There are no data to show');
       }
       buildCards(_embedded.events);
+      buildPagination(page);
     })
     .catch(error => toastr.error(error.message))
     .finally(() => preloader.hide());
-
 }
 
 function clearInput() {
-  refs.input.value = "";
+  refs.input.value = '';
 }
 
 function clearEventList() {
-  refs.eventList.innerHTML = "";
+  refs.eventList.innerHTML = '';
 }
