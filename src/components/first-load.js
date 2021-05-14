@@ -1,6 +1,5 @@
 import { Preloader } from './preloader';
 import { buildCards } from './build-cards';
-// import '../utils/handlebars-datetime-formatter'
 import toastr from 'toastr';
 import ApiService from '../services/api-service';
 import { refs } from './refs';
