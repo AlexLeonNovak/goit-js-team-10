@@ -1,98 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Event Booster Team 10</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
-    />
-  </head>
-  <body>
-    <header class="hero-section">
-      <picture class="logo">
-        <source
-          srcset="./images/mobile/logo.png 1x, ./images/mobile/logo@2x.png 2x"
-          media="(max-width: 767px)"
-        />
-        <source
-          srcset="./images/tablet/logo.png 1x, ./images/tablet/logo@2x.png 2x"
-          media="(min-width: 768px)"
-        />
-        <source
-          srcset="./images/desktop/logo.png 1x, ./images/desktop/logo@2x.png 2x"
-          media="(min-width: 1200px)"
-        />
-        <img
-          src="./images/desktop/logo.png"
-          sizes="(max-width: 767px) 450px, (min-width: 768px) 354px, (min-width: 1200px) 270px, 100vw"
-        />
-      </picture>
-      <div class="header container">
-        <h1 class="hero-title">FIND BEST EVENTS AROUND THE WORLD</h1>
-        <form class="search-form">
-          <div class="complete-input">
-            <input
-              type="text"
-              name="query"
-              class="clear-input search-input"
-              autocomplete="off"
-              placeholder="Start searching"
-            />
-            <img
-              class="search-icon"
-              src="./images/Vector.svg"
-              alt=""
-              width="12"
-              height="12"
-            />
-          </div>
+<html lang='en'>
 
-          <select class="search-input" id="selectID">
-            <option selected="" value="Default">Choose country</option>
-            <option value="AF">Australia</option>
-            <option value="AL">Canada</option>
-            <option value="DZ">India</option>
-            <option value="AS">Russia</option>
-            <option value="AD">USA</option>
-          </select>
-        </form>
-        <div class="overlay"></div>
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+  <title>Event Booster Team 10</title>
+  <link rel='preconnect' href='https://fonts.gstatic.com'>
+  <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap' rel='stylesheet'>
+  <link rel='stylesheet'
+        href='https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css' />
+  <style>
+    /** This style must load before content */
+    .preloader {
+      position: fixed;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100vh;
+      background: #0e0e0e;
+      overflow: hidden;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body class='preloader-active'>
+<div class='preloader'>
+  <div class='preloader-content'>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="shadow"></div>
+    <div class="shadow"></div>
+    <div class="shadow"></div>
+    <span class='preloader-text'>Loading</span>
+  </div>
+</div>
+<header class='hero-section'>
+
+  <picture class='logo'>
+    <source srcset='./images/mobile/logo.png 1x, ./images/mobile/logo@2x.png 2x' media='(max-width: 767px)' />
+    <source srcset='./images/tablet/logo.png 1x, ./images/tablet/logo@2x.png 2x' media='(min-width: 768px)' />
+    <source srcset='./images/desktop/logo.png 1x, ./images/desktop/logo@2x.png 2x' media='(min-width: 1200px)' />
+    <img src='./images/desktop/logo.png'
+         sizes='(max-width: 767px) 450px, (min-width: 768px) 354px, (min-width: 1200px) 270px, 100vw' />
+  </picture>
+  <div class='header container'>
+    <h1 class='hero-title'>FIND BEST EVENTS AROUND THE WORLD</h1>
+    
+    <form class='search-form'>
+      <div class='start-input'>
+        <input id="output" type='text' name='query'  autocomplete='off'
+               placeholder='Start searching' />
       </div>
-    </header>
+<div class="start-input country">
+  <input type="button"  id="select-country-btn" value="Choose country"  />
+</div>
+</form>
+        </div> 
+       
+    <div class='overlay'></div>
+  </div>
+</header>
 
-    <main class="main">
-      <div class="container">
-        <ul class="card-list"></ul>
-        <div id="pagination"></div>
-      </div>
-    </main>
-
-    <div><img src="./images/desktop/bg-body.png" alt="" /></div>
-
-    <div class="main-wrapper dark-bg">
-      <section class="events">
-        <div class="container"></div>
-      </section>
-      <footer class="footer">
-        <div class="container">
-          <p class="footer-text">
-            <span>©</span>2021 | All Rights Reserved | Developed with
-            <span>♥</span>by GoIT Students
-          </p>
-        </div>
-      </footer>
+  <main class="main container">
+    <div>
+      <ul class="card-list"></ul>
+      <div class="pagination" id="pagination"></div>
     </div>
-    <!-- Modal -->
-    <div class="backdrop is-hidden">
-      <div class="modal"></div>
+  </main>
+
+<div><img src='./images/desktop/bg-body.png' alt=''></div>
+
+
+<div class="main-wrapper dark-bg">
+  <section class="events">
+    <div class="container"></div>
+  </section>
+  <footer class='footer'>
+    <div class="container">
+      <p class='footer-text'>
+        <span>©</span>2021 | All Rights Reserved | Developed with
+        <span>♥</span>by GoIT Students
+      </p>
     </div>
-  </body>
+  </footer>
+</div>
+
+</body>
 </html>
