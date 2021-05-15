@@ -4,6 +4,7 @@
 
   @media screen and (min-width: 768px) {
     display: flex;
+	
     justify-content: center;
     position: absolute;
     top: 38%;
@@ -16,54 +17,55 @@
 
 .start-input {
 	position: relative;
-
+	
 	@media screen and (min-width: 768px) {
 		width: 270px;
 	}
 
 	& input {
-		display: block;
-		width: 100%;
-		padding: 10px 30px;
-		color: $secondary-color;
-    font-family: inherit;
-		font-size: 16px;
-		line-height: 1.25;
-		border-radius: 20px;
-     border-style: none;
-    outline: none;
-		background: $secondary-color-02;
-		backdrop-filter: blur(20px);
+		@extend %input-field;
+		
+		
 	}
   & input:hover,
 	& input:focus,
 	& input.active {
 		outline: none;
-    	box-shadow: 0 0 3px 3px $accent-color;
+    	box-shadow: 0 0 1px 1px $accent-color;
     
 	}
 
 	&::after {
-		content: '';
-		position: absolute;
-		top: 50%;
-		right: 30px;
-		transform: translateY(-50%);
-		display: block;
-		width: 12px;
-		height: 12px;
+		@extend %input-icon;
 		background: url('../images/Vector.svg') no-repeat;
 	}
 }
 
-.start-input.country {
+.choose-input {
+	@extend %input-field;
+		
+	position: relative;
 	margin-top: 25px;
-	&::after {
-		background: url('../images/Polygon1.svg') no-repeat;
-	
-	}
 
+	
+
+	&::after {
+		@extend %input-icon;
+		background: url('../images/Polygon1.svg') no-repeat;
+	}
+	
+&:hover,
+&:focus {
+		outline: none;
+    	box-shadow: 0 0 1px 1px $accent-color;
+		&::after {
+		@extend %input-icon;
+		background: url('../images/Polygon.svg') no-repeat;
+	}
+    
+	}
   @media screen and (min-width: 768px) {
+	  width: 270px;
     	margin-top: 0;
 			margin-left: 30px;
 	}
@@ -73,42 +75,49 @@
 	}
 }
 
-
+.choose-country {
+	display: block;
+	text-align: start;
+}		 	
+	
 .country-list {
 	z-index: 99;
-	position: absolute;
-	width: 100%;
-	margin-top: 3px;
+	width: 270px;
+	margin-top: 15px;
+	margin-left: -30px;
 	transition: height 0.4s;
 	height: 210px;
 	overflow-y:scroll;
-  border-radius: 20px;
-    backdrop-filter: blur(20px);
     color: $country-name-color;
 
   &::-webkit-scrollbar {
   width: 3px;
-  background-color: $secondary-color-02;
+  
 }
 
  &::-webkit-scrollbar-thumb {
-  border-radius: 20px;
+	 display: block;
+  border-radius: 50px;
   height: 43px;
   background-color: $secondary-color;
 }
+  &::before {
+		@extend %input-icon;
+		top: 15%;
+		right: 25px;
+		width: 225px;
+		height: 1px;
+		background: url('../images/Line.svg') no-repeat;
+	}
 
-&::-webkit-scrollbar-track {
- 
-  border-radius: 10px;
-  background-color: $secondary-color-02;
-}
 
 
-	.start-input :not(.active) + & {
+	.choose-input :not(.active) + & {
 		@extend %hidden;
 		width: 100%;
 	}
 	
+
 }
 
  .country-button {
@@ -116,7 +125,7 @@
   width: 100%;
  align-items: center;
 	color: $secondary-color;
-    background: $secondary-color-02;
+    //background: $secondary-color-02;
     font-family: inherit;
 	font-size: 16px;
 	line-height: 1.25;

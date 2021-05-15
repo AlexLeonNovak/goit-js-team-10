@@ -24,3 +24,30 @@
   width: 1px !important;
   overflow: hidden;
 }
+
+%input-field{
+  display: block;
+		width: 100%;
+		padding: 10px  30px;
+		color: $secondary-color;
+    font-family: inherit;
+		font-size: 16px;
+		line-height: 1.25;
+		border-radius: 20px;
+     border-style: none;
+    outline: none;
+	cursor: pointer;
+		background: $secondary-color-02;
+		backdrop-filter: blur(20px);
+}
+
+%input-icon{
+  content: '';
+		position: absolute;
+		top: 20px;
+		right: 30px;
+		transform: translateY(-50%);
+		display: block;
+		width: 12px;
+		height: 12px;
+}
