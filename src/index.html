@@ -24,7 +24,8 @@
     }
   </style>
 </head>
-<body class='preloader-active'>
+
+<body class='preloader-active dark-bg'>
 <div class='preloader'>
   <div class='preloader-content'>
     <div class='circle'></div>
@@ -36,56 +37,46 @@
     <span class='preloader-text'>Loading</span>
   </div>
 </div>
-<header class='hero-section'>
+<header>
+  <div>
+    <div class='hero-section'>
+      <picture class='logo'>
+        <source srcset='./images/mobile/logo.png 1x, ./images/mobile/logo@2x.png 2x' media='(max-width: 767px)' />
+        <source srcset='./images/tablet/logo.png 1x, ./images/tablet/logo@2x.png 2x' media='(min-width: 768px)' />
+        <source srcset='./images/desktop/logo.png 1x, ./images/desktop/logo@2x.png 2x' media='(min-width: 1200px)' />
+        <img src='./images/desktop/logo.png'
+             sizes='(max-width: 767px) 450px, (min-width: 768px) 354px, (min-width: 1200px) 270px, 100vw' />
+      </picture>
+      <div class='header container'>
+        <h1 class='hero-title'>FIND BEST EVENTS AROUND THE WORLD</h1>
 
-  <picture class='logo'>
-    <source srcset='./images/mobile/logo.png 1x, ./images/mobile/logo@2x.png 2x' media='(max-width: 767px)' />
-    <source srcset='./images/tablet/logo.png 1x, ./images/tablet/logo@2x.png 2x' media='(min-width: 768px)' />
-    <source srcset='./images/desktop/logo.png 1x, ./images/desktop/logo@2x.png 2x' media='(min-width: 1200px)' />
-    <img src='./images/desktop/logo.png'
-         sizes='(max-width: 767px) 450px, (min-width: 768px) 354px, (min-width: 1200px) 270px, 100vw' />
-  </picture>
-  <div class='header container'>
-    <h1 class='hero-title'>FIND BEST EVENTS AROUND THE WORLD</h1>
-
-    <form class='search-form'>
-      <div class='start-input'>
-        <input id='output' type='text' name='query' autocomplete='off'
-               placeholder='Start searching' />
+        <form class='search-form'>
+          <div class='start-input'>
+            <input id='output' type='text' name='query' autocomplete='off' placeholder='Start searching' />
+          </div>
+          <div class='start-input country'>
+            <input type='button' id='select-country-btn' value='Choose country' />
+          </div>
+        </form>
       </div>
-      <div class='start-input country'>
-        <input type='button' id='select-country-btn' value='Choose country' />
-      </div>
-    </form>
+    </div>
   </div>
-
-  <div class='overlay'></div>
-
 </header>
 
-<main class='main container'>
-  <div>
-    <ul class='card-list'></ul>
-    <div class='pagination' id='pagination'></div>
-  </div>
-</main>
-
-<div><img src='./images/desktop/bg-body.png' alt=''></div>
-
-
-<div class='main-wrapper dark-bg'>
-  <section class='events'>
-    <div class='container'></div>
-  </section>
-  <footer class='footer'>
-    <div class='container'>
-      <p class='footer-text'>
-        <span>©</span>2021 | All Rights Reserved | Developed with
-        <span>♥</span>by GoIT Students
-      </p>
+<div class='main-wrapper'>
+  <main class='main container'>
+    <div>
+      <ul class='card-list'></ul>
+      <div class='pagination' id='pagination'></div>
     </div>
+  </main>
+  <footer class='footer'>
+    <p class='footer-text'>
+      <span>©</span>2021 | All Rights Reserved | Developed with
+      <span>♥</span>by GoIT Students
+    </p>
   </footer>
 </div>
-
 </body>
+
 </html>

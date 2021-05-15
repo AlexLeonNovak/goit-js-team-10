@@ -1,4 +1,3 @@
-
 @import './utils/hidden';
 @import './utils/variables';
 @import './utils/placeholder';
@@ -13,6 +12,7 @@
 @import './layouts/footer';
 @import './layouts/modal';
 @import './layouts/preloader';
+@import './theme/dark-bg';
 
 //Plugins
 @import 'toastr/toastr.scss';
