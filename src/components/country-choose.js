@@ -53,7 +53,7 @@ export function loadEvents(page = 1) {
   }
 
   clearEventList();
-  //preloader.showLight();
+  preloader.showLight();
   api.page = page;
   api
     .fetchEvents()
