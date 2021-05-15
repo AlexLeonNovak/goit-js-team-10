@@ -59,6 +59,12 @@ export default class ApiService {
       .then(response => response.json());
   }
 
+  clear() {
+    this._searchQuery = '';
+    this._page = 1;
+    this._countryCode = '';
+  }
+
   buildParamString(params){
     let str = [];
     for (let key in params) {
