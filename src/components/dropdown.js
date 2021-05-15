@@ -24,6 +24,6 @@ function closeTargetElm(target, element) {
       .querySelectorAll('li')
       .forEach(el => el.classList.remove('current'));
     target.classList.add('current');
-    element.value = target.innerText;
+    element.innerText = target.innerText;
   }
 }
