@@ -6,10 +6,10 @@
             </svg>
         </button>
 
-        <img src="{{image}}" alt="" class="modal-icon" />
+        <img src="{{image.small}}" alt="" class="modal-icon" />
 
         <div class="modal-flex">
-            <img src="{{image}}" alt="" class="modal-img" />
+            <img src="{{image.big}}" alt="" class="modal-img" />
 
             <div class="main-info">
                 <div>
@@ -34,21 +34,19 @@
                     <h2 class="title-modal">who</h2>
                     <p class="who">{{name}}</p>
                 </div>
-
+                {{#if prices}}
                 <div>
                     <h2 class="title-modal">prices</h2>
+                    {{#each prices}}
                     <div class="buy-tickets">
-                        <p class="ticket-standart ticket">{{type}} {{priceRanges.min}} - {{priceRanges.max}} {{priceRanges.currency}}</p>
+                        <p class="ticket-standart ticket">{{type}} {{min}} - {{max}} {{currency}}</p>
                         <button class="modal-btn btn-buy">BUY TICKETS</button>
                     </div>
-
-                    <div>
-                        <p class="ticket-vip ticket">VIP 1000-1500 UAH</p>
-                        <button class="modal-btn btn-buy">BUY TICKETS</button>
-                    </div>
+                    {{/each}}
                 </div>
+                {{/if}}
             </div>
         </div>
 
-        <button class="modal-btn more-btn">MORE FROM THIS AUTHOR</button>
+        <button class="modal-btn more-btn" data-author='{{name}}'>MORE FROM THIS AUTHOR</button>
     </div>
