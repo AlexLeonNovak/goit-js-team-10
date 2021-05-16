@@ -15,30 +15,30 @@
                 <div>
                     <h2 class="title-modal">info</h2>
                     <p>
-                        {{description}}
+                        {{info}}
                     </p>
                 </div>
 
                 <div>
-                    <h2 class="title-modal">WHEN</h2>
-                    <p>{{date}}</p>
-                    <p>{{start.localTime}} ({{place.city}}/{{place.city}})</p>
+                    <h2 class="title-modal">when</h2>
+                    <p>{{datetimeFormat date 'yyyy-mm-dd'}}</p>
+                    <p>{{datetimeFormat start.localTime 'hh:mm'}} ({{country}}/{{city}})</p>
                 </div>
 
                 <div>
-                    <h2 class="title-modal">WHERE</h2>
+                    <h2 class="title-modal">where</h2>
                     <p>{{place}}</p>
                 </div>
 
                 <div>
-                    <h2 class="title-modal">WHO</h2>
+                    <h2 class="title-modal">who</h2>
                     <p class="who">{{name}}</p>
                 </div>
 
                 <div>
-                    <h2 class="title-modal">PRICES</h2>
+                    <h2 class="title-modal">prices</h2>
                     <div class="buy-tickets">
-                        <p class="ticket-standart ticket">Standart 300-500 UAH</p>
+                        <p class="ticket-standart ticket">{{type}} {{priceRanges.min}} - {{priceRanges.max}} {{priceRanges.currency}}</p>
                         <button class="modal-btn btn-buy">BUY TICKETS</button>
                     </div>
 
