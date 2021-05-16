@@ -4,6 +4,7 @@ import toastr from 'toastr';
 import ApiService from '../services/api-service';
 import { refs } from './refs';
 import { buildPagination } from './paginator';
+import { fetch } from './fetcher';
 
 document.addEventListener('DOMContentLoaded', onLoadedDocument);
 
@@ -15,12 +16,5 @@ if (window.matchMedia("(min-width: 480px) and (max-width: 769px)").matches) {
 
 function onLoadedDocument() {
   const preloader = new Preloader(refs.preloader);
-  api
-    .fetchEvents()
-    .then(({ _embedded, page }) => {
-      buildCards(_embedded.events);
-      buildPagination(page);
-    })
-    .catch(error => toastr.error(error.message))
-    .finally(() => preloader.hide());
+  fetch(api);
 }

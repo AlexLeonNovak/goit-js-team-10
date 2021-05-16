@@ -5,6 +5,7 @@ import toastr from 'toastr';
 import { Preloader } from './preloader';
 import { buildCards } from './build-cards';
 import { buildPagination } from './paginator';
+import { fetch } from './fetcher';
 
 const api = new ApiService();
 const preloader = new Preloader(refs.preloader);
@@ -15,22 +16,9 @@ refs.pagination.addEventListener('click', onSearch);
 
 function onSearch(e) {
   e.preventDefault();
-
   updateApiByEvent(e);
-
   preloader.showLight();
-  api.fetchEvents()
-    .then(({ _embedded, page }) => {
-      if (!_embedded) {
-        throw Error('There are no data to show')
-      }
-      clearEventList();
-      buildCards(_embedded.events);
-      buildPagination(page);
-    })
-    .catch(error => toastr.error(error.message))
-    .finally(() => preloader.hide());
-
+  fetch(api);
 }
 
 function updateApiByEvent(e) {

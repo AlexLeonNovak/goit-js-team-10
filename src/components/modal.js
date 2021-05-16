@@ -4,6 +4,7 @@ import ApiService from '../services/api-service';
 import { eventAdapter } from '../utils/event-adapter';
 import { Preloader } from './preloader';
 import toastr from 'toastr';
+import { fetch } from './fetcher';
 
 const api = new ApiService();
 const preloader = new Preloader(refs.preloader);
@@ -28,10 +29,12 @@ function onCardClick(e) {
 }
 
 function onBackdropClick(e) {
-  console.log(e.target, 'target');
-  console.log(e.currentTarget, 'currentTarget');
-  if (e.target === e.currentTarget) {
+  const closeBtn = e.target.closest('.modal-close-btn');
+  if (e.target === e.currentTarget || closeBtn) {
     closeModal();
+  }
+  if (e.target.classList.contains('modal-btn')) {
+    onModalBtnClick(e.target);
   }
 }
 
@@ -56,4 +59,12 @@ function onWindowKeydown(e) {
   if (KEYCODE_ESC === e.code) {
     closeModal();
   }
+}
+
+function onModalBtnClick(elem) {
+  closeModal()
+  api.clear();
+  api.searchQuery = elem.dataset.author;
+  preloader.showLight();
+  fetch(api);
 }
