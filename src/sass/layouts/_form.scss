@@ -25,7 +25,6 @@
 	& input {
 		@extend %input-field;
 		
-		
 	}
   & input:hover,
 	& input:focus,
@@ -42,26 +41,19 @@
 }
 
 .choose-input {
+	z-index: 99;
 	@extend %input-field;
-		
+	
+transition: all 500ms linear;
 	position: relative;
 	margin-top: 25px;
 
 	
 
-	&::after {
-		@extend %input-icon;
-		background: url('../images/Polygon1.svg') no-repeat;
-	}
-	
 &:hover,
 &:focus {
 		outline: none;
     	box-shadow: 0 0 1px 1px $accent-color;
-		&::after {
-		@extend %input-icon;
-		background: url('../images/Polygon.svg') no-repeat;
-	}
     
 	}
   @media screen and (min-width: 768px) {
@@ -73,22 +65,40 @@
     
 		margin-left: 30px;
 	}
+
 }
 
 .choose-country {
 	display: block;
 	text-align: start;
+	
+	&::after {
+		@extend %input-icon;
+		background: url('../images/Polygon1.svg') no-repeat;
+	}
+
+	&.active{
+		outline: none;
+    	
+		&::after {
+		@extend %input-icon;
+		background: url('../images/Polygon.svg') no-repeat;
+	}
+    
+	}
 }		 	
 	
 .country-list {
-	z-index: 99;
 	width: 270px;
-	margin-top: 15px;
+	margin-top: 10px;
 	margin-left: -30px;
-	transition: height 0.4s;
+	padding-top: 10px;
+
 	height: 210px;
 	overflow-y:scroll;
     color: $country-name-color;
+	transform: scaleY(1);
+transition: transform 500ms linear;
 
   &::-webkit-scrollbar {
   width: 3px;
@@ -103,7 +113,7 @@
 }
   &::before {
 		@extend %input-icon;
-		top: 15%;
+		top: 0;
 		right: 25px;
 		width: 225px;
 		height: 1px;
@@ -113,7 +123,11 @@
 
 
 	.choose-input :not(.active) + & {
-		@extend %hidden;
+		position: absolute;
+  padding-top: 0;
+  height: 0;
+  transform: scaleY(0);
+  transition: all 500ms linear;
 		width: 100%;
 	}
 	
