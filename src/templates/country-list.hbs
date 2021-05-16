@@ -1,16 +1,3 @@
-<ul class="country-list">
-    <li class="country-button" data-country-code="US" >USA</li>
-    <li class="country-button" data-country-code="CA" >Canada</li>
-    <li class="country-button" data-country-code="UK" >Great Britain</li>
-    <li class="country-button" data-country-code="DE" >Germany</li>
-    <li class="country-button" data-country-code="FR" >France</li>
-    <li class="country-button" data-country-code="PL" >Poland</li>
-    <li class="country-button" data-country-code="AU" >Australia</li>
-    <li class="country-button" data-country-code="NZ" >New Zealand</li>
-    <li class="country-button" data-country-code="DK" >Denmark</li>
-    <li class="country-button" data-country-code="FR" >France</li>
-    <li class="country-button" data-country-code="PL" >Poland</li>
-    <li class="country-button" data-country-code="AU" >Australia</li>
-    <li class="country-button" data-country-code="NZ" >New Zealand</li>
-    <li class="country-button" data-country-code="DK" >Denmark</li>
-</ul>
+{{#each countries}}
+  <li class="country-button" data-country-code="{{@key}}">{{this}}</li>
+{{/each}}

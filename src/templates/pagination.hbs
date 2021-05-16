@@ -3,6 +3,6 @@
 {{#if latest}}
 <li class="{{../paginationItemClass}} paginationItemInactive">...</li>
 {{/if}}
-<li class="{{../paginationItemClass}} {{#if active}}active{{/if}}">{{value}}</li>
+<li class="{{../paginationItemClass}} {{#if active}}active{{/if}}" data-page='{{value}}'>{{value}}</li>
 {{/each}}
 </ul>
