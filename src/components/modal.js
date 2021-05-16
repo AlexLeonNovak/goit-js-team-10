@@ -23,5 +23,4 @@ function updateModalMarkup(data) {
 
 function onOpenModal() {
   refs.backdropRef.classList.remove('is-hidden');
-  updateModalMarkup();
 }

@@ -4,7 +4,7 @@ const API_KEY = 'bOxDzXD7U4DYwWKdKJpCszoGXxMX0Go3';
 export default class ApiService {
   constructor() {
     this._searchQuery = '';
-    this._page = 1;
+    this._page = 0;
     this._perPage = 20;
     this._countryCode = '';
   }
@@ -14,7 +14,7 @@ export default class ApiService {
   }
 
   set searchQuery(query) {
-    this._page = 1;
+    this._page = 0;
     this._searchQuery = query;
   }
 
@@ -30,12 +30,16 @@ export default class ApiService {
     this._page = page;
   }
 
+  set perPage(pp) {
+    this._perPage = pp;
+  }
+
 
   fetchEvents() {
     const params = {
       apikey: API_KEY,
       page: this._page,
-      per_page: this._perPage,
+      size: this._perPage,
     };
 
     if (this._searchQuery.trim().length){
@@ -61,7 +65,7 @@ export default class ApiService {
 
   clear() {
     this._searchQuery = '';
-    this._page = 1;
+    this._page = 0;
     this._countryCode = '';
   }
 
