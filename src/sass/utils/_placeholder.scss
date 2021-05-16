@@ -3,6 +3,7 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+
 %button {
   align-items: center;
   font-family: inherit;
@@ -15,12 +16,36 @@
   border-style: none;
 }
 %hidden {
-  position: absolute !important;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0 !important;
-  border: 0 !important;
-  height: 1px !important;
-  width: 1px !important;
-  overflow: hidden;
+  position: absolute;
+  padding-top: 0;
+  height: 0;
+  transform: scaleY(0);
+  transition: transform 500ms linear;
+}
+
+%input-field{
+  display: block;
+		width: 100%;
+		padding: 10px  30px;
+		color: $secondary-color;
+    font-family: inherit;
+		font-size: 16px;
+		line-height: 1.25;
+		border-radius: 20px;
+     border-style: none;
+    outline: none;
+	cursor: pointer;
+		background: $secondary-color-02;
+		backdrop-filter: blur(20px);
+}
+
+%input-icon{
+  content: '';
+		position: absolute;
+		top: 20px;
+		right: 30px;
+		transform: translateY(-50%);
+		display: block;
+		width: 12px;
+		height: 12px;
 }

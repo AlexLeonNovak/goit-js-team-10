@@ -63,28 +63,28 @@ ul {
 
 /* Задаём ширину остовного контейнера */
 .container {
-  width: 1280px;
+  width: 100%;
   padding-left: 25px;
   padding-right: 25px;
   margin-left: auto;
   margin-right: auto;
 
   @include for-size(minmobile) {
-    min-width: 320px;
+    max-width: 320px;
   }
 
   @include for-size(mobile) {
-    min-width: 480px;
+    max-width: 480px;
   }
 
   @include for-size(tablet) {
-    min-width: 768px;
+    max-width: 768px;
     padding-left: 85px;
     padding-right: 85px;
   }
 
   @include for-size(desktop) {
-    min-width: 1280px;
+    max-width: 1280px;
     padding-left: 175px;
     padding-right: 175px;
   }
