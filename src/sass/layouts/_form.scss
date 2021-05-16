@@ -4,7 +4,7 @@
 
   @media screen and (min-width: 768px) {
     display: flex;
-	
+
     justify-content: center;
     position: absolute;
     top: 38%;
@@ -16,147 +16,144 @@
 }
 
 .start-input {
-	position: relative;
-	
-	@media screen and (min-width: 768px) {
-		width: 270px;
-	}
+  position: relative;
 
-	& input {
-		@extend %input-field;
-		
-	}
+  @media screen and (min-width: 768px) {
+    width: 270px;
+  }
+
+  & input {
+    @extend %input-field;
+
+  }
+
   & input:hover,
-	& input:focus,
-	& input.active {
-		outline: none;
-    	box-shadow: 0 0 1px 1px $accent-color;
-    
-	}
+  & input:focus,
+  & input.active {
+    outline: none;
+    box-shadow: 0 0 1px 1px $accent-color;
 
-	&::after {
-		@extend %input-icon;
-		background: url('../images/Vector.svg') no-repeat;
-	}
+  }
+
+  &::after {
+    @extend %input-icon;
+    background: url('../images/Vector.svg') no-repeat;
+  }
 }
 
 .choose-input {
-	z-index: 99;
-	@extend %input-field;
-	
-transition: all 500ms linear;
-	position: relative;
-	margin-top: 25px;
+  z-index: 99;
+  @extend %input-field;
 
-	
+  transition: all 500ms linear;
+  position: relative;
+  margin-top: 25px;
 
-&:hover,
-&:focus {
-		outline: none;
-    	box-shadow: 0 0 1px 1px $accent-color;
-    
-	}
+
+  &:hover,
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 1px 1px $accent-color;
+
+  }
+
   @media screen and (min-width: 768px) {
-	  width: 270px;
-    	margin-top: 0;
-			margin-left: 30px;
-	}
+    width: 270px;
+    margin-top: 0;
+    margin-left: 30px;
+  }
   @media screen and (min-width: 1280px) {
-    
-		margin-left: 30px;
-	}
+
+    margin-left: 30px;
+  }
 
 }
 
 .choose-country {
-	display: block;
-	text-align: start;
-	
-	&::after {
-		@extend %input-icon;
-		background: url('../images/Polygon1.svg') no-repeat;
-	}
+  display: block;
+  text-align: start;
 
-	&.active{
-		outline: none;
-    	
-		&::after {
-		@extend %input-icon;
-		background: url('../images/Polygon.svg') no-repeat;
-	}
-    
-	}
-}		 	
-	
+  &::after {
+    @extend %input-icon;
+    background: url('../images/Polygon1.svg') no-repeat;
+  }
+
+  &.active {
+    outline: none;
+
+    &::after {
+      @extend %input-icon;
+      background: url('../images/Polygon.svg') no-repeat;
+    }
+
+  }
+}
+
 .country-list {
-	width: 270px;
-	margin-top: 10px;
-	margin-left: -30px;
-	padding-top: 10px;
+  width: 270px;
+  margin-left: -30px;
+  padding-top: 15px;
 
-	height: 210px;
-	overflow-y:scroll;
-    color: $country-name-color;
-	transform: scaleY(1);
-transition: transform 500ms linear;
+  height: 210px;
+  overflow-y: scroll;
+  color: $country-name-color;
+  transform: scaleY(1);
+  transition: all 500ms linear;
 
   &::-webkit-scrollbar {
-  width: 3px;
-  
-}
+    width: 3px;
 
- &::-webkit-scrollbar-thumb {
-	 display: block;
-  border-radius: 50px;
-  height: 43px;
-  background-color: $secondary-color;
-}
+  }
+
+  &::-webkit-scrollbar-thumb {
+    display: block;
+    border-radius: 50px;
+    height: 43px;
+    background-color: $secondary-color;
+  }
+
   &::before {
-		@extend %input-icon;
-		top: 0;
-		right: 25px;
-		width: 225px;
-		height: 1px;
-		background: url('../images/Line.svg') no-repeat;
-	}
+    @extend %input-icon;
+    top: 10px;
+    right: 25px;
+    width: 225px;
+    height: 1px;
+    background: url('../images/Line.svg') no-repeat;
+  }
 
 
+  .choose-input :not(.active) + & {
+    padding-top: 0;
+    height: 0;
+    transform: scaleY(0);
+  }
 
-	.choose-input :not(.active) + & {
-		position: absolute;
-  padding-top: 0;
-  height: 0;
-  transform: scaleY(0);
-  transition: all 500ms linear;
-		width: 100%;
-	}
-	
 
 }
 
- .country-button {
+.country-button {
   height: 25px;
   width: 100%;
- align-items: center;
-	color: $secondary-color;
-    //background: $secondary-color-02;
-    font-family: inherit;
-	font-size: 16px;
-	line-height: 1.25;
-	cursor: pointer;
-     border-style: none;
+  align-items: center;
+  color: $secondary-color;
+  //background: $secondary-color-02;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.25;
+  cursor: pointer;
+  border-style: none;
+  outline: none;
+
+
+  &:hover,
+  &:focus,
+  &.active,
+  &.current {
     outline: none;
-		
-		
-    &:hover,
-	&:focus,
-	&.active,
-	&.current {
-	outline: none;
     background: $accent-color;
     color: $light-color;
     box-shadow: none;
-	}
- 
+  }
+
 }
 
