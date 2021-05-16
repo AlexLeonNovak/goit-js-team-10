@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', onLoadedDocument);
 
 const api = new ApiService();
 
+if (window.matchMedia("(min-width: 480px) and (max-width: 769px)").matches) {
+  api.perPage = 21;
+}
+
 function onLoadedDocument() {
   const preloader = new Preloader(refs.preloader);
   api

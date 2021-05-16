@@ -7,4 +7,6 @@ export const refs = {
   countryList: document.querySelector('.country-list'),
   countryBtnList: document.querySelectorAll('li'),
   pagination: document.getElementById('pagination'),
+  modalRef: document.querySelector('.modal'),
+  backdropRef: document.querySelector('.backdrop'),
 };
