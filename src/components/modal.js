@@ -1,26 +1,59 @@
 import modalTemplate from '../templates/modal.hbs';
 import { refs } from './refs';
 import ApiService from '../services/api-service';
-const api = new ApiService();
 import { eventAdapter } from '../utils/event-adapter';
+import { Preloader } from './preloader';
+import toastr from 'toastr';
 
-refs.eventList.addEventListener('click', eventDetailsHandler);
+const api = new ApiService();
+const preloader = new Preloader(refs.preloader);
 
-function eventDetailsHandler(event) {
-  if (event.target.nodeName !== 'LI') {
+refs.eventList.addEventListener('click', onCardClick);
+refs.backdropModal.addEventListener('click', onBackdropClick)
+
+function onCardClick(e) {
+  const elem = e.target.closest('li');
+  if (!elem) {
     return;
   }
-  const eventId = event.target.dataset.id;
-  api.fetchEventDetail(eventId).then(data => {
-    updateModalMarkup(data);
-  });
-  onOpenModal();
+  const eventId = elem.dataset.id;
+  preloader.showLight();
+  api.fetchEventDetail(eventId)
+    .then(data => {
+      updateModalMarkup(data);
+      openModal();
+    })
+    .catch(error => toastr.error(error.message))
+    .finally(() => preloader.hide());
+}
+
+function onBackdropClick(e) {
+  console.log(e.target, 'target');
+  console.log(e.currentTarget, 'currentTarget');
+  if (e.target === e.currentTarget) {
+    closeModal();
+  }
 }
 
 function updateModalMarkup(data) {
-  refs.modalRef.innerHTML = modalTemplate(eventAdapter(data));
+  refs.modal.innerHTML = modalTemplate(eventAdapter(data));
 }
 
-function onOpenModal() {
-  refs.backdropRef.classList.remove('is-hidden');
+function openModal() {
+  refs.backdropModal.classList.remove('is-hidden');
+  refs.body.classList.add('modal-opened');
+  window.addEventListener('keydown', onWindowKeydown);
+}
+
+function closeModal() {
+  refs.backdropModal.classList.add('is-hidden');
+  refs.body.classList.remove('modal-opened');
+  window.removeEventListener('keydown', onWindowKeydown);
+}
+
+function onWindowKeydown(e) {
+  const KEYCODE_ESC = 'Escape';
+  if (KEYCODE_ESC === e.code) {
+    closeModal();
+  }
 }
