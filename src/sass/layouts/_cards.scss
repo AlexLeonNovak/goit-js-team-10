@@ -48,13 +48,20 @@
 }
 
 .item-box {
+  @extend %animation;
   &:hover {
-    transform: scale(1.25);
-    box-shadow: 12px 12px 2px 1px rgba(220, 86, 197, 0.3);
-    }
+      transform: translateY(-21%);
+    // transform: scale(1.15);
+    box-shadow: 12px 12px 2px 1px rgba(233, 77, 204, 0.5);
+    
+  &::before {
+    box-shadow: 12px 18px 8px 0px rgba(166, 88, 202, 0.247);
+  }  
+ }
 }
 
-.card-item::before {
+.item-box::before {
+  @extend %animation;
   position: absolute;
   display: block;
   content: '';
@@ -71,6 +78,8 @@
     right: -14px;
   }
 }
+
+
 
 .card-image__wrapper {
   @extend %animation;
