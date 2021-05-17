@@ -2,3 +2,13 @@
   color: $secondary-color;
   text-align: center;
 }
+.heart{
+  display: inline-block;
+  background: url('../images/heart.svg');
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  color: $accent-color;
+  
+}
