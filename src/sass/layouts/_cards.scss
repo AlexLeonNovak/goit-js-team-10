@@ -47,6 +47,13 @@
   }
 }
 
+.item-box {
+  &:hover {
+    transform: scale(1.25);
+    box-shadow: 12px 12px 2px 1px rgba(220, 86, 197, 0.3);
+    }
+}
+
 .card-item::before {
   position: absolute;
   display: block;
