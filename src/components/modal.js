@@ -60,7 +60,13 @@ function onWindowKeydown(e) {
 }
 
 function onModalBtnClick(elem) {
-  closeModal()
+  closeModal();
+  refs.selectCountryBtn.innerText = 'Choose country';
+  refs.selectCountryBtn.classList.remove('active');
+  refs.countryList
+      .querySelectorAll('li')
+      .forEach(el => el.classList.remove('current'));
+  refs.input.value = '';
   api.clear();
   api.searchQuery = elem.dataset.author;
   preloader.showLight();

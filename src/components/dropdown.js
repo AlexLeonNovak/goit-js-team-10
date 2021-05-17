@@ -27,3 +27,4 @@ function closeTargetElm(target, element) {
     element.innerText = target.innerText;
   }
 }
+
