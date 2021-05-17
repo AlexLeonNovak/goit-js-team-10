@@ -1,6 +1,7 @@
 import pagination from '../templates/pagination.hbs';
 import { refs } from './refs';
 import { loadEvents } from './form-events';
+import './first-load';
 
 const paginationItemClass = 'pagination-item';
 
