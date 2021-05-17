@@ -17,7 +17,7 @@ const getPagingRange = (current, { min = 1, total = 20, length = 5 } = {}) => {
 const buildPaginationItemsFromRange = (range, currentPage) =>
   range.map(item => ({
     value: item,
-    active: item === currentPage,
+    active: item === currentPage + 1,
     latest: false,
   }));
 
