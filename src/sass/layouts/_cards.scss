@@ -45,19 +45,21 @@
     margin-right: 70px;
     margin-bottom: 63px;
   }
+
+  &:hover .item-box {
+
+
+    transform: translateY(-21%);
+    box-shadow: 12px 12px 2px 1px rgba(233, 77, 204, 0.5);
+
+    &::before {
+      box-shadow: 12px 18px 8px 0px rgba(166, 88, 202, 0.247);
+    }
+  }
 }
 
 .item-box {
   @extend %animation;
-  &:hover {
-      transform: translateY(-21%);
-    // transform: scale(1.15);
-    box-shadow: 12px 12px 2px 1px rgba(233, 77, 204, 0.5);
-    
-  &::before {
-    box-shadow: 12px 18px 8px 0px rgba(166, 88, 202, 0.247);
-  }  
- }
 }
 
 .item-box::before {
@@ -78,7 +80,6 @@
     right: -14px;
   }
 }
-
 
 
 .card-image__wrapper {
@@ -102,23 +103,18 @@
   height: 161px;
   width: 100%;
   object-fit: cover;
-  // transform: translateX(-21%);
 
   @include for-size(tablet) {
     height: 227px;
   }
 }
 
-.description {
-  font-family: Montserrat;
-  font-style: 400;
-}
 .card-name {
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
   color: $accent-color;
-  padding: 5px 0px;
+  padding: 5px 0;
 
   @include for-size(tablet) {
     font-size: 15px;
@@ -130,7 +126,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  padding: 5px 0px;
+  padding: 5px 0;
   color: $light-color;
 
   @include for-size(tablet) {
@@ -143,8 +139,9 @@
   font-weight: 600;
   font-size: 12px;
   line-height: 15px;
-  padding: 5px 0px;
+  padding: 5px 0;
   color: $light-color;
+
   &:before {
     background-image: url(../images/sprite.svg#icon-map);
   }
