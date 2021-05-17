@@ -10,10 +10,6 @@
   .pagination-list {
     display: flex;
     justify-content: center;
-
-    .paginationItemInactive {
-      pointer-events: none;
-    }
   }
 
   .pagination-item {
@@ -25,6 +21,10 @@
     @include for-size(tablet) {
       line-height: 1.25;
       font-size: 16px;
+    }
+
+    .pagination-item__inactive {
+      pointer-events: none;
     }
 
     &:not(:last-child) {

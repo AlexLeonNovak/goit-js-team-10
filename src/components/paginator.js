@@ -1,7 +1,5 @@
 import pagination from '../templates/pagination.hbs';
 import { refs } from './refs';
-import { loadEvents } from './form-events';
-import './first-load';
 
 const paginationItemClass = 'pagination-item';
 
@@ -36,16 +34,4 @@ export const buildPagination = page => {
     page,
     items,
   });
-  // const paginationItems = refs.pagination.querySelectorAll(
-  //   `.${paginationItemClass}`,
-  // );
-  // registerEventListeners(paginationItems);
 };
-
-// const registerEventListeners = elements => {
-//   elements.forEach(element => {
-//     element.addEventListener('click', handlePaginationClick);
-//   });
-// };
-//
-// const handlePaginationClick = event => loadEvents(event.target.innerText);
