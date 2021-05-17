@@ -1,7 +1,7 @@
 <ul class="pagination-list">
 {{#each this.items}}
 {{#if latest}}
-<li class="{{../paginationItemClass}} paginationItemInactive">...</li>
+<li class="{{../paginationItemClass}} pagination-item__inactive">...</li>
 {{/if}}
 <li class="{{../paginationItemClass}} {{#if active}}active{{/if}}" data-page='{{value}}'>{{value}}</li>
 {{/each}}

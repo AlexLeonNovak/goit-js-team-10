@@ -1,6 +1,5 @@
 import pagination from '../templates/pagination.hbs';
 import { refs } from './refs';
-import { loadEvents } from './form-events';
 
 const paginationItemClass = 'pagination-item';
 
@@ -17,7 +16,7 @@ const getPagingRange = (current, { min = 1, total = 20, length = 5 } = {}) => {
 const buildPaginationItemsFromRange = (range, currentPage) =>
   range.map(item => ({
     value: item,
-    active: item === currentPage,
+    active: item === currentPage + 1,
     latest: false,
   }));
 
@@ -35,16 +34,4 @@ export const buildPagination = page => {
     page,
     items,
   });
-  // const paginationItems = refs.pagination.querySelectorAll(
-  //   `.${paginationItemClass}`,
-  // );
-  // registerEventListeners(paginationItems);
 };
-
-// const registerEventListeners = elements => {
-//   elements.forEach(element => {
-//     element.addEventListener('click', handlePaginationClick);
-//   });
-// };
-//
-// const handlePaginationClick = event => loadEvents(event.target.innerText);
