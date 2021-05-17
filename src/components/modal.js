@@ -1,12 +1,10 @@
 import modalTemplate from '../templates/modal.hbs';
 import { refs } from './refs';
-import ApiService from '../services/api-service';
 import { eventAdapter } from '../utils/event-adapter';
 import { Preloader } from './preloader';
 import toastr from 'toastr';
-import { fetch } from './fetcher';
+import { api, fetch } from './fetcher';
 
-const api = new ApiService();
 const preloader = new Preloader(refs.preloader);
 
 refs.eventList.addEventListener('click', onCardClick);
@@ -66,5 +64,5 @@ function onModalBtnClick(elem) {
   api.clear();
   api.searchQuery = elem.dataset.author;
   preloader.showLight();
-  fetch(api);
+  fetch();
 }

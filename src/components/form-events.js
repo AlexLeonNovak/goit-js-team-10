@@ -1,13 +1,9 @@
 import { debounce } from 'lodash';
-import ApiService from '../services/api-service';
 import { refs } from './refs';
 import toastr from 'toastr';
 import { Preloader } from './preloader';
-import { buildCards } from './build-cards';
-import { buildPagination } from './paginator';
-import { fetch } from './fetcher';
+import { api, fetch } from './fetcher';
 
-const api = new ApiService();
 const preloader = new Preloader(refs.preloader);
 
 refs.searchForm.addEventListener('input', debounce(onSearch, 500));
