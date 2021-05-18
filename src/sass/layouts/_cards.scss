@@ -49,8 +49,11 @@
   &:hover .item-box {
 
 
-    transform: translateY(-21%);
-    box-shadow: 12px 12px 2px 1px rgba(233, 77, 204, 0.5);
+    transform: translateY(-10%);
+    box-shadow: 5px 0px 5px 5px rgb(233 77 204 / 50%);
+    border-radius: 60px 0px;
+    
+
 
     &::before {
       box-shadow: 12px 18px 8px 0px rgba(166, 88, 202, 0.247);
