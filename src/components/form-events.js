@@ -14,7 +14,7 @@ function onSearch(e) {
   e.preventDefault();
   updateApiByEvent(e);
   preloader.showLight();
-  fetch(api);
+  fetch();
 }
 
 function updateApiByEvent(e) {

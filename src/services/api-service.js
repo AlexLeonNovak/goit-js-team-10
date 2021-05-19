@@ -51,7 +51,12 @@ export default class ApiService {
     }
 
     return fetch(`${BASE_URL}events.json?${this.buildParamString(params)}`)
-      .then(response => response.json());
+      .then(response => {
+        if (!response.ok) {
+          throw Error(response.status + ': ' + response.statusText);
+        }
+        return response.json()
+      });
   }
 
   fetchEventDetail(id) {
