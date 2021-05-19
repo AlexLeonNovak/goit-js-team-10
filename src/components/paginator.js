@@ -21,6 +21,10 @@ const buildPaginationItemsFromRange = (range, currentPage) =>
   }));
 
 export const buildPagination = page => {
+  /** Fix for free plan */
+  if (page.totalPages > 20) {
+    page.totalPages = 20;
+  }
   const range = getPagingRange(page.number, { total: page.totalPages });
   const items = buildPaginationItemsFromRange(range, page.number);
   items.push({
