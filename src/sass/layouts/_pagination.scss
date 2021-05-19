@@ -23,10 +23,6 @@
       font-size: 16px;
     }
 
-    .pagination-item__inactive {
-      pointer-events: none;
-    }
-
     &:not(:last-child) {
       margin-right: 5px;
     }
@@ -42,4 +38,8 @@
     border-radius: 10px 0;
     color: $accent-color;
   }
+}
+
+.pagination-item__inactive {
+  pointer-events: none;
 }
