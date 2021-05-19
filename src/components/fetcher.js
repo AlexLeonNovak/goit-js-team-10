@@ -4,9 +4,14 @@ import toastr from 'toastr';
 import { Preloader } from './preloader';
 import { refs } from './refs';
 import ApiService from '../services/api-service';
+import {scrollWin} from '../components/scroll.js'
+
 
 const preloader = new Preloader(refs.preloader);
 export const api = new ApiService();
+
+console.dir(refs.eventList);
+
 
 export const fetch = () => {
   api
@@ -17,7 +22,10 @@ export const fetch = () => {
       }
       buildCards(_embedded.events);
       buildPagination(page);
+      
+       scrollWin(); 
     })
     .catch(error => toastr.error(error.message))
     .finally(() => preloader.hide());
 }
+
