@@ -27,19 +27,22 @@ export const buildPagination = page => {
   }
   const range = getPagingRange(page.number, { total: page.totalPages });
   const items = buildPaginationItemsFromRange(range, page.number);
-  items.push({
-    value: page.totalPages,
-    active: page.number === page.totalPages,
-    first: false,
-    latest: true,
-  });
+
+  if (items[items.length - 1].value !== page.totalPages) {
+    items.push({
+      value: page.totalPages,
+      active: page.number === page.totalPages,
+      first: false,
+      latest: page.totalPages - items[items.length - 1].value >= 2,
+    });
+  }
 
   if (items[0].value !== 1) {
     items.unshift({
       value: 1,
       active: false,
       latest: false,
-      first: true,
+      first: items[0].value !== 2,
     });
   }
 
