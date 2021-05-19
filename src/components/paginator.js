@@ -26,8 +26,18 @@ export const buildPagination = page => {
   items.push({
     value: page.totalPages,
     active: page.number === page.totalPages,
+    first: false,
     latest: true,
   });
+
+  if (items[0].value !== 1) {
+    items.unshift({
+      value: 1,
+      active: false,
+      latest: false,
+      first: true,
+    });
+  }
 
   refs.pagination.innerHTML = pagination({
     paginationItemClass,

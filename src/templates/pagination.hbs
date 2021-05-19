@@ -4,5 +4,8 @@
 <li class="{{../paginationItemClass}} pagination-item__inactive">...</li>
 {{/if}}
 <li class="{{../paginationItemClass}} {{#if active}}active{{/if}}" data-page='{{value}}'>{{value}}</li>
+{{#if first}}
+<li class="{{../paginationItemClass}} pagination-item__inactive">...</li>
+{{/if}}
 {{/each}}
 </ul>
