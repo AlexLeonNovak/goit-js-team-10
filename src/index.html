@@ -40,13 +40,16 @@
 <header>
   <div>
     <div class='hero-section'>
-      <picture class='logo'>
-        <source srcset='./images/mobile/logo.png 1x, ./images/mobile/logo@2x.png 2x' media='(max-width: 767px)' />
-        <source srcset='./images/tablet/logo.png 1x, ./images/tablet/logo@2x.png 2x' media='(min-width: 768px)' />
-        <source srcset='./images/desktop/logo.png 1x, ./images/desktop/logo@2x.png 2x' media='(min-width: 1200px)' />
-        <img src='./images/desktop/logo.png'
-             sizes='(max-width: 767px) 450px, (min-width: 768px) 354px, (min-width: 1200px) 270px, 100vw' />
-      </picture>
+      <a href='./'>
+        <picture class='logo'>
+          <source srcset='./images/mobile/logo.png 1x, ./images/mobile/logo@2x.png 2x' media='(max-width: 767px)' />
+          <source srcset='./images/tablet/logo.png 1x, ./images/tablet/logo@2x.png 2x' media='(min-width: 768px)' />
+          <source srcset='./images/desktop/logo.png 1x, ./images/desktop/logo@2x.png 2x' media='(min-width: 1200px)' />
+          <img src='./images/desktop/logo.png'
+               sizes='(max-width: 767px) 450px, (min-width: 768px) 354px, (min-width: 1200px) 270px, 100vw'
+               alt='Logo'/>
+        </picture>
+      </a>
       <div class='header container'>
         <h1 class='hero-title'>FIND BEST EVENTS AROUND THE WORLD</h1>
 
@@ -56,7 +59,7 @@
           </div>
           <div class='choose-input'>
             <span class='choose-country' id='select-country-btn'>Choose country</span>
-            <ul class="country-list"></ul>
+            <ul class='country-list'></ul>
           </div>
         </form>
       </div>
@@ -74,12 +77,12 @@
   <footer class='footer'>
     <p class='footer-text'>
       <span>©</span>2021 | All Rights Reserved | Developed with
-      <span class="heart">♥</span>by GoIT Students
+      <span class='heart'>♥</span>by GoIT Students
     </p>
   </footer>
 </div>
-<div class="backdrop is-hidden">
-  <div class="modal"></div>
+<div class='backdrop is-hidden'>
+  <div class='modal'></div>
 </div>
 </body>
 
