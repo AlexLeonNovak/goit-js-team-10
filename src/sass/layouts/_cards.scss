@@ -25,7 +25,7 @@
   position: relative;
   text-align: center;
   cursor: pointer;
-  border-radius: 50px 0px;
+  border-radius: 50px 0;
 
   object-fit: cover;
 
@@ -50,13 +50,13 @@
 
 
     transform: translateY(-10%);
-    box-shadow: 5px 0px 5px 5px rgb(233 77 204 / 50%);
-    border-radius: 60px 0px;
-    
+    box-shadow: 5px 0 5px 5px rgb(233 77 204 / 50%);
+    border-radius: 60px 0;
+
 
 
     &::before {
-      box-shadow: 12px 18px 8px 0px rgba(166, 88, 202, 0.247);
+      box-shadow: 12px 18px 8px 0 rgba(166, 88, 202, 0.247);
     }
   }
 }
@@ -70,7 +70,7 @@
   position: absolute;
   display: block;
   content: '';
-  border-radius: 50px 0px;
+  border-radius: 50px 0;
   border: 1px solid rgba(220, 86, 197, 0.3);
   width: 109px;
   height: 101px;
@@ -91,7 +91,7 @@
 
   width: 128px;
   height: 161px;
-  border-radius: 50px 0px;
+  border-radius: 50px 0;
   object-fit: cover;
 
   overflow: hidden;

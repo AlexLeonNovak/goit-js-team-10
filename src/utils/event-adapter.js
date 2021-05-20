@@ -14,4 +14,5 @@ export const eventAdapter = event => ({
   city: event._embedded.venues[0].city.name,
   country: event._embedded.venues[0].country.name,
   prices: event.priceRanges,
+  url: event.url
 });
