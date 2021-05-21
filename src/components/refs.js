@@ -10,4 +10,7 @@ export const refs = {
   modal: document.querySelector('.modal'),
   backdropModal: document.querySelector('.backdrop'),
   body: document.querySelector('body'),
+  signInBtn:document.querySelector('.sign-in-btn'),
+authContainer:document.querySelector('.auth-container'),
+authBg:document.querySelector('.auth-bg'),
 };

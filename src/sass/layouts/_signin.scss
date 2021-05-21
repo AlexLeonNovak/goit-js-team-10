@@ -1,0 +1,72 @@
+
+.auth-bg {
+  display: block;
+  position: absolute;
+  top: -40px;
+  right: 5%;
+  z-index: 120;
+ 
+}
+
+.auth-container {
+  display: block;
+  cursor: pointer;
+  border-radius: 20px;
+   //background-color: $secondary-color;
+  transition: 500ms all ease;
+  
+.auth-bg :not(.active) + & {
+    padding-top: 0;
+    height: 0;
+    transform: scaleY(0);
+  }
+  .firebaseui-card-content {
+    padding: 1px 14px;
+    border-radius: 20px;
+
+  box-shadow: 0 0 1px 1px $accent-color;
+    
+    
+  }
+}
+
+.sign-in-btn {
+   @extend %input-field;
+  width: 120px;
+  height: 40px;
+  font-weight: 400;
+  z-index: 110;
+  margin: auto;
+  margin-top: 60px;
+  padding: 5px  5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1px;
+  transition: all 300ms linear;
+ //box-shadow: 0 0 1px 1px $accent-color;
+ 
+  
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 1px 1px $accent-color;
+  }
+
+}
+
+
+
+
+
+
+
+// .auth-container.clicked {
+//   opacity: 1;
+//   transition: 1.2s all ease;
+//   transform: translateY(10px);
+
+//   .sign-in-button {
+//     background: $secondary-color-02;
+//   }
+// }

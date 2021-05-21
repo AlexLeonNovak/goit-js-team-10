@@ -49,6 +49,8 @@
   },
   "dependencies": {
     "dateformat": "^4.5.1",
+    "firebase": "^8.6.2",
+    "firebaseui": "^4.8.0",
     "handlebars": "^4.7.7",
     "lodash.debounce": "^4.0.8",
     "toastr": "^2.1.4"
